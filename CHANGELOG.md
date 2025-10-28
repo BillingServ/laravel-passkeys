@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-passkeys` will be documented in this file.
 
+## 1.5.0 - 2025-10-28
+
+### What's Changed
+
+* Add configure ceremony step manager action by @gerpo in https://github.com/spatie/laravel-passkeys/pull/83
+* Add remember parameter to authenticateWithPasskey by @gerpo in https://github.com/spatie/laravel-passkeys/pull/85
+
+### New Contributors
+
+* @gerpo made their first contribution in https://github.com/spatie/laravel-passkeys/pull/83
+
+**Full Changelog**: https://github.com/spatie/laravel-passkeys/compare/1.4.1...1.5.0
+
 ## 1.4.1 - 2025-10-21
 
 **Full Changelog**: https://github.com/spatie/laravel-passkeys/compare/1.4.0...1.4.1

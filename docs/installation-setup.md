@@ -120,6 +120,7 @@ return [
         'store_passkey' => Spatie\LaravelPasskeys\Actions\StorePasskeyAction::class,
         'generate_passkey_authentication_options' => \Spatie\LaravelPasskeys\Actions\GeneratePasskeyAuthenticationOptionsAction::class,
         'find_passkey' => Spatie\LaravelPasskeys\Actions\FindPasskeyToAuthenticateAction::class,
+        'configure_ceremony_step_manager_factory' => Spatie\LaravelPasskeys\Actions\ConfigureCeremonyStepManagerFactoryAction::class,
     ],
 
     /*

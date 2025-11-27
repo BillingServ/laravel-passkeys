@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-passkeys` will be documented in this file.
 
+## 1.5.1 - 2025-11-27
+
+### What's Changed
+
+* Update Dutch translations for passkeys terminology by @Mantix in https://github.com/spatie/laravel-passkeys/pull/87
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/spatie/laravel-passkeys/pull/86
+
+**Full Changelog**: https://github.com/spatie/laravel-passkeys/compare/1.5.0...1.5.1
+
 ## 1.5.0 - 2025-10-28
 
 ### What's Changed

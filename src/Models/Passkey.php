@@ -11,6 +11,7 @@ use Spatie\LaravelPasskeys\Database\Factories\PasskeyFactory;
 use Spatie\LaravelPasskeys\Support\Config;
 use Spatie\LaravelPasskeys\Support\Serializer;
 use Webauthn\PublicKeyCredentialSource;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @property PublicKeyCredentialSource $data
@@ -38,7 +39,7 @@ class Passkey extends Model
                 PublicKeyCredentialSource::class
             ),
             set: fn (PublicKeyCredentialSource $value) => [
-                'credential_id' => mb_convert_encoding($value->publicKeyCredentialId, 'UTF-8'),
+                'credential_id' => self::encodeCredentialId($value->publicKeyCredentialId),
                 'data' => $serializer->toJson($value),
             ],
         );
@@ -49,6 +50,21 @@ class Passkey extends Model
         $authenticatableModel = Config::getAuthenticatableModel();
 
         return $this->belongsTo($authenticatableModel);
+    }
+
+    /**
+     * Encode a credential id in a DB-safe way. When using PostgreSQL we need to store
+     * binary credential ids as base64 so we don't insert invalid UTF-8 into text columns.
+     */
+    public static function encodeCredentialId(string $raw): string
+    {
+        $driver = DB::connection()->getDriverName();
+
+        if ($driver === 'pgsql') {
+            return base64_encode($raw);
+        }
+
+        return mb_convert_encoding($raw, 'UTF-8');
     }
 
     protected static function newFactory(): Factory

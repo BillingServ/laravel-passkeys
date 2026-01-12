@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
 use Spatie\LaravelPasskeys\Database\Factories\PasskeyFactory;
 use Spatie\LaravelPasskeys\Support\Config;
 use Spatie\LaravelPasskeys\Support\Serializer;
 use Webauthn\PublicKeyCredentialSource;
-use Illuminate\Support\Facades\DB;
 
 /**
  * @property PublicKeyCredentialSource $data

@@ -23,7 +23,7 @@ class AuthenticateUsingPasskeyController
 
         $passkey = $findAuthenticatableUsingPasskey->execute(
             $request->input('start_authentication_response'),
-            Session::get('passkey-authentication-options'),
+            Session::pull('passkey-authentication-options'), // pull() removes after reading
         );
 
         if (! $passkey) {

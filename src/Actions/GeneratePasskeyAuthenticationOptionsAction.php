@@ -20,7 +20,9 @@ class GeneratePasskeyAuthenticationOptionsAction
 
         $options = Serializer::make()->toJson($options);
 
-        Session::flash('passkey-authentication-options', $options);
+        // Use put() instead of flash() so options persist across the WebAuthn flow
+        // flash() only survives one request, but WebAuthn requires two (GET options, POST authenticate)
+        Session::put('passkey-authentication-options', $options);
 
         return $options;
     }

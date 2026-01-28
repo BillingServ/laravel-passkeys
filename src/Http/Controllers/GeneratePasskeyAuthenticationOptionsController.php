@@ -2,7 +2,6 @@
 
 namespace Spatie\LaravelPasskeys\Http\Controllers;
 
-use Illuminate\Support\Facades\Session;
 use Spatie\LaravelPasskeys\Actions\GeneratePasskeyAuthenticationOptionsAction;
 use Spatie\LaravelPasskeys\Support\Config;
 
@@ -12,10 +11,7 @@ class GeneratePasskeyAuthenticationOptionsController
     {
         $action = Config::getAction('generate_passkey_authentication_options', GeneratePasskeyAuthenticationOptionsAction::class);
 
-        $options = $action->execute();
-
-        Session::flash('passkey-registration-options', $options);
-
-        return $options;
+        // The action handles session storage
+        return $action->execute();
     }
 }
